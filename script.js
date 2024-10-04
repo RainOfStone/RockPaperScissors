@@ -1,4 +1,4 @@
-let win = 0, lose = 0, tie = 0,
+/*let win = 0, lose = 0, tie = 0,
 UserRSP, BotNumber , BotRPS, Round, LowerCaseUser,
 total = 0, RoundsLeft = 5
 function RoundRPS(){
@@ -99,4 +99,4 @@ else {
     console.log('game canceled.')
 }
 }
-RockPaperScissors()
+RockPaperScissors() */
