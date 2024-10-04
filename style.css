@@ -42,7 +42,7 @@ body {
     height: 600px;
     justify-content: center;
     align-items: center;
-    font-size: 28px;
+    font-size: 24px;
     font-family: sans-serif, 'Roboto';
 }
 #bottom {
@@ -61,11 +61,14 @@ body {
 #scissors {
     background-color: lightcoral;
 }
-#rock, #paper, #scissors {
+#GameResults {
+    background-color: white;
+}
+#rock, #paper, #scissors, #GameResults {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 266px;
+    width: 200px;
     border: none;
     font-size: 30px;
 }
