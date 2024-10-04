@@ -1,102 +1,19 @@
-/*let win = 0, lose = 0, tie = 0,
-UserRSP, BotNumber , BotRPS, Round, LowerCaseUser,
-total = 0, RoundsLeft = 5
-function RoundRPS(){
-    if (total == 5){
-        if (win > lose){
-            alert(`you won! Score: wins: ${win}, ties: ${tie}, losses: ${lose}`)
-        }
-        else if (win < lose){
-            alert(`you lost :( Score: wins: ${win}, ties: ${tie}, losses: ${lose}`)
-        }
-        else {
-            alert(`you tied! Score: wins: ${win}, ties: ${tie}, losses: ${lose}`)
-        }
-    }
-    else if (BotRPS == 'rock' || BotRPS == 'paper' || BotRPS == 'scissors'){
-        RoundsLeft --
-        alert(`(you) ${UserChoice} vs ${BotRPS} (bot) You ${Round}! wins: ${win}, ties: ${tie}, losses: ${lose} Rounds left: ${RoundsLeft}`)
-        RockPaperScissors()
-    }
-} 
-function BotRPSFunc(){
-    if(BotNumber <= 0.33){
-        BotRPS = 'rock'
-        RoundRPS()
-    }
-    if(BotNumber  <= 0.66 && BotNumber  >= 0.33){
-        BotRPS = 'paper'
-        RoundRPS()
-    }
-    if(BotNumber  <= 1 && BotNumber  >= 0.66){
-        BotRPS = 'scissors'
-        RoundRPS()
-    }
-}
-function RockPaperScissors(){
-    UserChoice = prompt('type rock, paper or scissors:')
-    BotChoice = Math.random()
-    BotNumber = BotChoice
-    if (UserChoice !== null){
-        UserChoice = UserChoice.toLowerCase()
-        if (BotChoice <= 0.33 && UserChoice == 'rock'){
-            tie ++
-            Round = 'tied'
-            total ++
-            BotRPSFunc()
-        }
-        else if (BotChoice <= 0.33 && UserChoice == 'paper'){
-            win ++
-            Round = 'win'
-            total ++
-            BotRPSFunc()
-        }
-        else if (BotChoice <= 0.33 && UserChoice == 'scissors'){
-            lose ++
-            Round = 'lose'
-            total ++
-           BotRPSFunc()
-        }
-    
-        else if (BotChoice <= 0.66 && BotChoice >= 0.33 && UserChoice == 'paper'){
-            tie ++
-            Round = 'tied'
-            total ++
-            BotRPSFunc()
-        }
-        else if (BotChoice <= 0.66 && BotChoice >= 0.33 && UserChoice == 'rock'){
-            lose ++
-            Round = 'lose'
-            total ++
-            BotRPSFunc()
-        }
-        else if (BotChoice <= 0.66 && BotChoice >= 0.33 && UserChoice == 'scissors') {
-            win ++
-            Round = 'win'
-            total ++
-            BotRPSFunc()
-        }
-        else if (BotChoice <= 1 && BotChoice >= 0.66 && UserChoice == 'scissors') {
-            tie ++
-            Round = 'tied'
-            total ++
-            BotRPSFunc()
-        }
-        else if (BotChoice <= 1 && BotChoice >= 0.66 && UserChoice == 'rock') {
-            win ++
-            Round = 'win'
-            total ++
-            BotRPSFunc()
-        }
-        else if (BotChoice <= 1 && BotChoice >= 0.66 && UserChoice == 'paper') {
-            lose ++
-            Round = 'lose'
-            total ++
-            BotRPSFunc()
-        }
-}
-else {
-    console.log('game canceled.')
-}
-}
-RockPaperScissors() */
+let PlayerScore = document.querySelector('#PlayerScore'),
+ComputerScore = document.querySelector('#ComputerScore'),
+Middle = document.querySelector('#middle'),
+Round = document.querySelector('#round')
+// use let to change the score unlike const
+const PlayerContainer = document.querySelector('#player'),
+ComputerContainer = document.querySelector('#computer')
+RoundContainer = document.querySelector('#middle'),
+RockBtn = document.querySelector('#rock'),
+PaperBtn = document.querySelector('#paper'),
+ScissorsBtn = document.querySelector('scissors')
+let PlayerWins = 0, PlayerTies = 0, PlayerLosses = 0, /*display with
+PlayerScore and `${Player wins/ties/losses}`*/
+ComputerWins = 0, ComputerTies = 0, ComputerLosses = 0, RoundNum = 0
+/*display with ComputerScore and `${Computer wins/ties/losses}`*/
+// `Round: ${RoundNum}`
+PlayerScore.textContent = `Wins: ${PlayerWins} Ties: ${PlayerTies} Losses: ${PlayerLosses}`
+ComputerScore.textContent = `Wins: ${ComputerWins} Ties: ${ComputerTies} Losses: ${ComputerLosses}`
+Round.textContent = 'Click the rock, paper or scissors button to start. Best out of 5!'
