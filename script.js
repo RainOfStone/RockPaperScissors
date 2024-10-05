@@ -29,13 +29,10 @@ let RoundsRemaining = 5
     let target = event.target //ai did this thank it
     switch(target.id) {
         case 'rock':
-<<<<<<< HEAD
             PlayerChoiceRock() 
-=======
             if (RoundsRemaining != 0) {
             PlayerChoiceRock()
             }
->>>>>>> origin/rps-ui
             RoundsRemaining--
             break
         case 'paper':
