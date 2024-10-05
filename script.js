@@ -29,7 +29,6 @@ let RoundsRemaining = 5
     let target = event.target //ai did this thank it
     switch(target.id) {
         case 'rock':
-            PlayerChoiceRock() 
             if (RoundsRemaining != 0) {
             PlayerChoiceRock()
             }
