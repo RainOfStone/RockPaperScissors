@@ -5,7 +5,6 @@ Round = document.querySelector('#round'),
 GameResults, GameResultBtn = document.createElement('button')
 GameResultBtn.textContent = 'game results'
 GameResultBtn.className = 'GameBtn'
-const GameBtn = document.querySelector('#middle')
 // assign a class to it and make a node based off the class and buttn
 // use let to change the score unlike const
 const PlayerContainer = document.querySelector('#player'),
@@ -30,7 +29,7 @@ let RoundsRemaining = 5
     let target = event.target //ai did this thank it
     switch(target.id) {
         case 'rock':
-            PlayerChoiceRock()
+            PlayerChoiceRock() 
             RoundsRemaining--
             break
         case 'paper':
@@ -48,26 +47,6 @@ let RoundsRemaining = 5
             break
     }
 }) 
-GameBtn.addEventListener('click', () => {
-    let OverallWinner
-    if (PlayerWins > ComputerWins) {
-        OverallWinner = 'the player'
-        Round.textContent = `Player wins: ${PlayerWins}, ties: ${PlayerTies}, losses: ${PlayerLosses} Computer wins: ${ComputerWins}, ties: ${ComputerTies}, losses: ${ComputerLosses} The winner is ${OverallWinner}!`
-    }
-    else if (PlayerWins < ComputerWins) {
-        OverallWinner = 'the computer'
-        Round.textContent = `Player wins: ${PlayerWins}, ties: ${PlayerTies}, losses: ${PlayerLosses} Computer wins: ${ComputerWins}, ties: ${ComputerTies}, losses: ${ComputerLosses} The winner is ${OverallWinner}!`
-    }
-    else if (PlayerWins === ComputerWins) {
-        OverallWinner = 'no one'
-        Round.textContent = `Player wins: ${PlayerWins}, ties: ${PlayerTies}, losses: ${PlayerLosses} Computer wins: ${ComputerWins}, ties: ${ComputerTies}, losses: ${ComputerLosses} The winner is ${OverallWinner}!`
-    }
-})
-function RoundResultBtn () {
-    if (RoundNum == 5) {
-        Middle.appendChild(GameResultBtn)
-    }
-}
 let PlayerChoice, ComputerNum, ComputerChoice,
 RoundWinner
 function PlayerChoiceRock() {
@@ -83,10 +62,16 @@ function PlayerChoiceScissors() {
     ComputerNumber()
 }
 function ComputerNumber() {
+    if (RoundsRemaining != 0 && RoundNum < 5) {
     ComputerNum = Math.random()
     ComputerChoiceFunc()
+    }
+    else if (RoundNum == 5) {
+        winner()
+    }
 }
 function ComputerChoiceFunc() {
+   // if (RoundsRemaining != 0) {
     if (ComputerNum <= 0.33 && PlayerChoice == 'rock'){
         ComputerChoice = 'rock'
         RoundWinner = 'tie'
@@ -145,9 +130,10 @@ function ComputerChoiceFunc() {
         DisplayRoundResult()
     }
     console.log(`${ComputerChoice} num: ${ComputerNum}`)
+   // }
 }
 function DisplayRoundResult() {
-    if (RoundWinner == 'player' && RoundNum < 5) {
+    if (RoundWinner == 'player' && RoundNum < 5 && RoundsRemaining != 0) {
         RoundNum += 1
         ComputerLosses += 1
         Round.textContent = `Round: ${RoundNum}, ${PlayerChoice} (you) vs ${ComputerChoice} (computer), ${RoundWinner} wins!
@@ -155,14 +141,14 @@ function DisplayRoundResult() {
         PlayerScore.textContent = `Wins: ${PlayerWins} Ties: ${PlayerTies} Losses: ${PlayerLosses}`
         ComputerScore.textContent = `Wins: ${ComputerWins} Ties: ${ComputerTies} Losses: ${ComputerLosses}`
     }
-    else if (RoundWinner == 'tie' && RoundsRemaining != 0){
+    else if (RoundWinner == 'tie' && RoundNum < 5 && RoundsRemaining != 0){
         RoundNum += 1
         Round.textContent = `Round: ${RoundNum}, ${PlayerChoice} (you) vs ${ComputerChoice} (computer), it's a tie!
         Press the rock, paper or scissors button to start the next round. (if the round is 5, click display game results.)`
         PlayerScore.textContent = `Wins: ${PlayerWins} Ties: ${PlayerTies} Losses: ${PlayerLosses}`
         ComputerScore.textContent = `Wins: ${ComputerWins} Ties: ${ComputerTies} Losses: ${ComputerLosses}`
     }
-    else if (RoundWinner == 'computer' && RoundsRemaining != 0) {
+    else if (RoundWinner == 'computer' && RoundNum < 5 && RoundsRemaining != 0) {
         RoundNum += 1
         PlayerLosses += 1
         Round.textContent = `Round: ${RoundNum}, ${PlayerChoice} (you) vs ${ComputerChoice} (computer), ${RoundWinner} wins!
