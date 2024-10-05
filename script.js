@@ -30,15 +30,21 @@ let RoundsRemaining = 5
     let target = event.target //ai did this thank it
     switch(target.id) {
         case 'rock':
+            if (RoundsRemaining != 0) {
             PlayerChoiceRock()
+            }
             RoundsRemaining--
             break
         case 'paper':
+            if (RoundsRemaining != 0) {
             PlayerChoicePaper()
+            }
             RoundsRemaining--
             break
         case 'scissors':
+            if (RoundsRemaining != 0) {
             PlayerChoiceScissors()
+            }
             RoundsRemaining--
             break
         case 'GameResults':
