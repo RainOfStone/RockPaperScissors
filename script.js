@@ -22,11 +22,9 @@ ComputerWins = 0, ComputerTies = 0, ComputerLosses = 0, RoundNum = 0
 PlayerScore.textContent = `Wins: ${PlayerWins} Ties: ${PlayerTies} Losses: ${PlayerLosses}`
 ComputerScore.textContent = `Wins: ${ComputerWins} Ties: ${ComputerTies} Losses: ${ComputerLosses}`
 Round.textContent = 'Click the rock, paper or scissors button to start. Best of 5!'
-    //const newBottom = bottom.cloneNode(true)
-    //bottom.parentNode.replaceChild(newBottom, bottom)
 let RoundsRemaining = 5
     bottom.addEventListener('click', (event) => {
-    let target = event.target //ai did this thank it
+    let target = event.target 
     switch(target.id) {
         case 'rock':
             if (RoundsRemaining != 0) {
